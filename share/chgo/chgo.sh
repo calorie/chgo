@@ -1,4 +1,5 @@
-CHGO_ROOT=$(cd "$(dirname $BASH_SOURCE[@])"/../.. && pwd)
+ORG=$(pwd)
+CHGO_ROOT=$(cd "$(dirname ${BASH_SOURCE:-$_})"/../.. && pwd)
 CHGO_VERSION="0.3.7"
 GOES=()
 
@@ -8,6 +9,9 @@ done
 unset dir
 
 mkdir -p $CHGO_ROOT/tmp
+
+cd $ORG
+unset ORG
 
 function chgo_reset()
 {
